@@ -1,0 +1,18 @@
+{
+    "survival": {
+        "median_days": 297.0,
+        "retention_1y": 0.4313510412396721,
+        "cox_c_index": 0.6023
+    },
+    "clv_model": {
+        "r2": 0.5246,
+        "mae": 73.91,
+        "top_features": {
+            "plan_type_Enterprise": 0.833812952041626,
+            "plan_type_Pro": 0.09424363076686859,
+            "recency": 0.016027553007006645,
+            "avg_order_value": 0.008178500458598137,
+            "region_LATAM": 0.007231112103909254
+        }
+    }
+}
