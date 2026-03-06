@@ -66,14 +66,11 @@ The dashboard has 3 tabs — Retention & Churn, Lifetime Value Prediction, and P
 
 ---
 
-### 6 · Predict New Customer — Interactive CLV Simulator
-> Enter a customer's plan type, region, acquisition channel, tenure, avg transaction value and frequency — the model returns a predicted 12-month lifetime value. Shown here: **Pro plan, NA region, Ads channel**.
 
-![Predict New Customer](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(123).png)
 
 ---
 
-### 7 · CLV Simulator — Alternative Input Example
+### 6 · CLV Simulator — Alternative Input Example
 > Same simulator with **Basic plan, EU region, Ads channel** inputs — demonstrating how the predicted CLV drops significantly for lower-tier plans.
 
 ![CLV Simulator EU Basic](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(124).png)
@@ -191,3 +188,4 @@ Synthetic dataset of **20,000+ customers** across 5 regions (NA, EU, APAC, LATAM
 ## 📄 License
 
 MIT License — free to use and adapt.
+
