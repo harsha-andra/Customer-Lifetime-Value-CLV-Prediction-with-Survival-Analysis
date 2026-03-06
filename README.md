@@ -1,12 +1,12 @@
 # 📈 Customer Lifetime Value (CLV) Prediction with Survival Analysis
 
-> Predict **when** a customer will churn and **how much revenue** they'll generate — going far beyond binary churn classification using survival analysis and machine learning.
+> Predict **when** a customer will churn and **how much revenue** they'll generate — going beyond binary churn classification using survival analysis and machine learning.
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange?style=flat-square&logo=scikit-learn)
 ![XGBoost](https://img.shields.io/badge/XGBoost-Regression-red?style=flat-square)
-![Plotly](https://img.shields.io/badge/Plotly-Dashboard-636efa?style=flat-square&logo=plotly)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Plotly Dash](https://img.shields.io/badge/Plotly-Dashboard-636efa?style=flat-square&logo=plotly)
+![lifelines](https://img.shields.io/badge/lifelines-Survival%20Analysis-green?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
 
 ---
 
@@ -14,65 +14,69 @@
 
 Most churn models answer *"will this customer leave?"* — this project answers *"when will they leave, and what are they worth until then?"*
 
-It combines **Kaplan-Meier survival curves**, **Cox Proportional Hazards regression**, and **RFM-based ML models** to give businesses a complete picture of customer retention risk and future revenue potential.
+It combines **Kaplan-Meier survival curves**, **Cox Proportional Hazards regression**, and an **XGBoost CLV regressor** to give businesses a complete picture of customer retention risk and future revenue potential — all accessible through an interactive Plotly Dash dashboard.
 
 ---
 
-## 📊 Output Results & Visualisations
+## 🖥️ Live Dashboard
 
-### 1 · Survival Curve — Customer Retention Over Time
-> Kaplan-Meier curves showing the probability of a customer remaining active across different segments.
+### Dashboard Overview — Key Metrics
+> Avg Lifetime Value: **$121.47** · Churn Rate: **62.0%** · Median Lifetime: **302 Days**
 
-![Survival Curve](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(121).png)
+![Dashboard Overview](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(121).png)
 
----
-
-### 2 · Cox Proportional Hazards — Churn Risk Factors
-> Which features most strongly accelerate or delay churn. Hazard ratios > 1 indicate increased risk.
-
-![Cox PH Risk Factors](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(122).png)
+The dashboard has 3 tabs — Retention & Churn, Lifetime Value Prediction, and Predict New Customer.
 
 ---
 
-### 3 · RFM Feature Distributions
-> Recency, Frequency, and Monetary value spread across the customer base — the foundation of CLV modelling.
+## 📊 Output Visualisations
 
-![RFM Distributions](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(123).png)
+### 1 · Retention Curve by Plan Type
+> Kaplan-Meier survival curves comparing how long customers stay active across **Basic, Pro, and Enterprise** plans. Enterprise customers retain significantly longer; Basic churns fastest.
 
----
-
-### 4 · CLV Prediction — Model Performance
-> Predicted vs actual CLV values. Evaluated using RMSE, MAE, and R² on a held-out test set.
-
-![Model Performance](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(124).png)
+![Retention by Plan Type](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot.png)
 
 ---
 
-### 5 · Customer Segmentation by CLV
-> Customers clustered into High / Mid / Low value tiers based on predicted lifetime value.
+### 2 · Retention Curve by Region
+> Survival curves across all 5 regions (MENA, APAC, LATAM, EU, SA). Retention behaviour is nearly identical across regions — geography has little impact on churn compared to plan type.
 
-![Customer Segmentation](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot.png)
-
----
-
-### 6 · Churn Probability Distribution
-> Predicted churn probabilities across all 20,000+ customers. High-risk customers are clearly identifiable.
-
-![Churn Probability](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(1).png)
+![Retention by Region](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(1).png)
 
 ---
 
-### 7 · Feature Importance — XGBoost / Random Forest
-> Top predictors of Customer Lifetime Value ranked by model importance score.
+### 3 · Retention by Region — Mid-Term Zoom (Days 330–630)
+> Zoomed-in view of the regional retention curves between 330 and 630 days. LATAM shows marginally better retention in the 1–2 year range.
 
-![Feature Importance](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(2).png)
+![Retention by Region Zoomed](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(2).png)
 
 ---
 
-### 8 · Revenue Forecast by Customer Segment
-> Projected 12-month revenue broken down by customer segment to guide retention investment.
+### 4 · Retention Curve by Acquisition Channel
+> **Referral** customers have the highest long-term retention. **Ads-acquired** customers churn the fastest. This directly informs marketing spend allocation.
 
-![Revenue Forecast](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(3).png)
+![Retention by Channel](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(3).png)
+
+---
+
+### 5 · Feature Importance + Actual vs Predicted CLV
+> Left: **plan_type_Enterprise** is by far the strongest predictor of high CLV (importance ~0.8). Right: **Actual vs Predicted CLV scatter** — predictions track well along the diagonal for most customers.
+
+![Feature Importance and Model Performance](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(122).png)
+
+---
+
+### 6 · Predict New Customer — Interactive CLV Simulator
+> Enter a customer's plan type, region, acquisition channel, tenure, avg transaction value and frequency — the model returns a predicted 12-month lifetime value. Shown here: **Pro plan, NA region, Ads channel**.
+
+![Predict New Customer](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(123).png)
+
+---
+
+### 7 · CLV Simulator — Alternative Input Example
+> Same simulator with **Basic plan, EU region, Ads channel** inputs — demonstrating how the predicted CLV drops significantly for lower-tier plans.
+
+![CLV Simulator EU Basic](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(124).png)
 
 ---
 
@@ -86,42 +90,35 @@ cd Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the full CLV pipeline
+# 3. Run the full CLV pipeline (survival analysis + model training)
 python main.py
 
 # 4. Launch the interactive dashboard
 python dashboard/app.py
 ```
 
-Open `http://localhost:8050` in your browser to explore the dashboard.
+Open `http://localhost:8051` in your browser.
 
 ---
 
 ## 🏗️ Project Structure
 
 ```
-Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/
-├── main.py                          # Entry point — runs full pipeline
+├── main.py                       # Pipeline entry point
 ├── requirements.txt
 ├── data/
-│   └── generate_clv_data.py         # Synthetic data generator (20,000+ customers)
+│   ├── generate_clv_data.py      # Synthetic data generator (20,000+ customers)
+│   ├── customers.csv
+│   └── transactions.csv
 ├── src/
-│   ├── survival_analysis.py         # Kaplan-Meier & Cox PH models
-│   ├── feature_engineering.py       # RFM & behavioural feature engineering
-│   ├── regression_model.py          # CLV regression (Random Forest / XGBoost)
-│   └── visualization.py             # All charts and survival curve plots
+│   ├── survival_analysis.py      # Kaplan-Meier & Cox PH models
+│   ├── feature_engineering.py    # RFM feature computation
+│   └── regression_model.py       # XGBoost CLV regressor + visualizer
 ├── dashboard/
-│   └── app.py                       # Interactive Plotly Dash retention dashboard
-├── Output_Results/                  # All 8 output visualisations
-│   ├── Screenshot (121).png         # Kaplan-Meier survival curves
-│   ├── Screenshot (122).png         # Cox PH churn risk factors
-│   ├── Screenshot (123).png         # RFM feature distributions
-│   ├── Screenshot (124).png         # CLV model performance
-│   ├── newplot.png                  # Customer segmentation by CLV
-│   ├── newplot (1).png              # Churn probability distribution
-│   ├── newplot (2).png              # Feature importance
-│   └── newplot (3).png              # Revenue forecast by segment
+│   └── app.py                    # Plotly Dash interactive dashboard
+├── Output_Results/               # All output screenshots
 └── reports/
+    ├── analysis_summary.json
     └── technical_report.md
 ```
 
@@ -129,40 +126,44 @@ Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/
 
 ## 🔬 Methodology
 
-### Step 1 — Data Generation
-Synthetic dataset of **20,000+ customers** across 4 regions (NA, EU, APAC, LATAM) simulating a subscription SaaS business with realistic churn decay patterns and purchase consistency.
+### 1 · Data
+Synthetic dataset of **20,000+ customers** across 5 regions (NA, EU, APAC, LATAM, MENA) and 6 acquisition channels, simulating a subscription SaaS business with realistic churn decay patterns.
 
-### Step 2 — Feature Engineering (RFM)
+### 2 · Survival Analysis
+- **Kaplan-Meier**: Non-parametric retention curves segmented by plan type, region, and channel
+- **Log-Rank Test**: Statistical significance of differences between survival curves
+- **Cox Proportional Hazards**: Identifies which covariates drive churn hazard and by how much
+- **C-index**: Primary model evaluation metric
 
+### 3 · Feature Engineering (RFM)
 | Feature | Description |
 |---|---|
 | **Recency** | Days since last transaction |
-| **Frequency** | Number of purchases |
+| **Frequency** | Total number of purchases |
 | **Monetary** | Total spend to date |
 | **Tenure** | Days since first purchase |
-| **Avg Order Value** | Mean transaction size |
+| **Avg Order Value** | Mean transaction amount |
+| **Purchases/Month** | Purchase rate normalised by tenure |
 
-### Step 3 — Survival Analysis
-- **Kaplan-Meier**: Non-parametric retention curves per customer segment
-- **Cox Proportional Hazards**: Identifies which covariates drive churn hazard
-- **C-index (Concordance)**: Primary evaluation metric for survival models
-
-### Step 4 — CLV Regression
-- Models: **Random Forest** and **XGBoost Regressor**
-- Target: Predicted 12-month revenue per customer
-- Evaluation: **RMSE · MAE · R²**
+### 4 · CLV Prediction
+- **Model**: XGBoost Regressor
+- **Target**: Revenue in the next 365 days (train/test split at Dec 31, 2024)
+- **Top predictor**: `plan_type_Enterprise` (importance ~0.8)
+- **Metrics**: MAE · R²
 
 ---
 
-## 📊 Key Metrics
+## 📊 Key Results
 
-| Item | Detail |
+| Metric | Value |
 |---|---|
-| **Dataset** | 20,000+ synthetic customers |
-| **Survival model** | Cox Proportional Hazards (`lifelines`) |
-| **CLV model** | XGBoost Regressor |
-| **Evaluation** | C-index · RMSE · MAE · R² |
-| **Regions** | NA · EU · APAC · LATAM · MENA |
+| Avg Lifetime Value | $121.47 |
+| Overall Churn Rate | 62.0% |
+| Median Customer Lifetime | 302 days |
+| Best Retention — Plan | Enterprise |
+| Best Retention — Channel | Referral |
+| Worst Retention — Channel | Ads |
+| Top CLV Predictor | plan_type_Enterprise |
 
 ---
 
@@ -170,34 +171,23 @@ Synthetic dataset of **20,000+ customers** across 4 regions (NA, EU, APAC, LATAM
 
 | Category | Tools |
 |---|---|
-| **Survival Analysis** | `lifelines` |
-| **ML Models** | `scikit-learn` · `XGBoost` |
-| **Data Processing** | `pandas` · `numpy` |
-| **Visualisation** | `plotly` · `matplotlib` · `seaborn` |
-| **Dashboard** | `Dash` (Plotly) |
+| Survival Analysis | `lifelines` |
+| ML Model | `XGBoost` · `scikit-learn` |
+| Data | `pandas` · `numpy` |
+| Visualisation | `plotly` |
+| Dashboard | `Dash` · `dash-bootstrap-components` |
 
 ---
 
-## 💡 Business Use Cases
+## 💡 Business Insights
 
-- **Retention campaigns** — identify high-risk customers before they churn and intervene early
-- **Revenue forecasting** — project next-quarter revenue using per-customer CLV estimates
-- **Customer tiering** — prioritise high-CLV accounts for premium support
-- **Marketing ROI** — compare CLV across acquisition channels to optimise spend
+- **Enterprise plan** customers have dramatically higher retention and CLV — upselling is the single highest-leverage action
+- **Referral** is the best-performing acquisition channel for long-term retention; **Ads** produces customers who churn the fastest
+- **Region has minimal impact** on retention — operational focus should be on plan tier and channel mix, not geography
+- The CLV simulator allows sales/CS teams to estimate a prospect's value before onboarding
 
 ---
 
-## 🔬 Key Features
+## 📄 License
 
-- **Survival Analysis**: Kaplan-Meier curves for retention rates
-- ** Cox Proportional Hazards**: Identifying risk factors (covariates) for churn
-- **RFM Analysis**: Recency, Frequency, Monetary value feature engineering
-- **CLV Prediction**: Regression models to forecast future revenue
-- **Model Evaluation**: C-index (Concordance), RMSE, MAE
-
-## 📂 Data Source
-
-The dataset is **synthetic**, generated by `data/generate_clv_data.py` to mimic a subscription-based SaaS business:
-- **Customers**: 20,000+ profiles with signup dates, regions (NA, EU, APAC, LATAM, MENA), and acquisition channels.
-- **Transactions**: Transaction records linked to customers with realistic churn patterns.
-- **patterns**: Simulates realistic churn decay curves and purchase consistency for accurate Lifetime Value (CLV) modeling.
+MIT License — free to use and adapt.
