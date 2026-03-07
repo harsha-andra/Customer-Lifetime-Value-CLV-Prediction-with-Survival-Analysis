@@ -23,7 +23,7 @@ It combines **Kaplan-Meier survival curves**, **Cox Proportional Hazards regress
 ### Dashboard Overview — Key Metrics
 > Avg Lifetime Value: **$121.47** · Churn Rate: **62.0%** · Median Lifetime: **302 Days**
 
-![Dashboard Overview](https://github.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/blob/main/Output_Results/Screenshot%20(121).png)
+![Dashboard Overview](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(121).png)
 
 The dashboard has 3 tabs — Retention & Churn, Lifetime Value Prediction, and Predict New Customer.
 
@@ -184,6 +184,7 @@ Synthetic dataset of **20,000+ customers** across 5 regions (NA, EU, APAC, LATAM
 - The CLV simulator allows sales/CS teams to estimate a prospect's value before onboarding
 
 ---
+
 
 
 
