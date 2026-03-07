@@ -23,7 +23,7 @@ It combines **Kaplan-Meier survival curves**, **Cox Proportional Hazards regress
 ### Dashboard Overview — Key Metrics
 > Avg Lifetime Value: **$121.47** · Churn Rate: **62.0%** · Median Lifetime: **302 Days**
 
-![Dashboard Overview](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(121).png)
+![Dashboard Overview](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot(121).png)
 
 The dashboard has 3 tabs — Retention & Churn, Lifetime Value Prediction, and Predict New Customer.
 
@@ -41,28 +41,28 @@ The dashboard has 3 tabs — Retention & Churn, Lifetime Value Prediction, and P
 ### 2 · Retention Curve by Region
 > Survival curves across all 5 regions (MENA, APAC, LATAM, EU, SA). Retention behaviour is nearly identical across regions — geography has little impact on churn compared to plan type.
 
-![Retention by Region](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(1).png)
+![Retention by Region](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot(1).png)
 
 ---
 
 ### 3 · Retention by Region — Mid-Term Zoom (Days 330–630)
 > Zoomed-in view of the regional retention curves between 330 and 630 days. LATAM shows marginally better retention in the 1–2 year range.
 
-![Retention by Region Zoomed](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(2).png)
+![Retention by Region Zoomed](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot(2).png)
 
 ---
 
 ### 4 · Retention Curve by Acquisition Channel
 > **Referral** customers have the highest long-term retention. **Ads-acquired** customers churn the fastest. This directly informs marketing spend allocation.
 
-![Retention by Channel](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot%20(3).png)
+![Retention by Channel](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/newplot(3).png)
 
 ---
 
 ### 5 · Feature Importance + Actual vs Predicted CLV
 > Left: **plan_type_Enterprise** is by far the strongest predictor of high CLV (importance ~0.8). Right: **Actual vs Predicted CLV scatter** — predictions track well along the diagonal for most customers.
 
-![Feature Importance and Model Performance](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(122).png)
+![Feature Importance and Model Performance](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot(122).png)
 
 ---
 
@@ -73,7 +73,7 @@ The dashboard has 3 tabs — Retention & Churn, Lifetime Value Prediction, and P
 ### 6 · CLV Simulator — Alternative Input Example
 > Same simulator with **Basic plan, EU region, Ads channel** inputs — demonstrating how the predicted CLV drops significantly for lower-tier plans.
 
-![CLV Simulator EU Basic](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot%20(124).png)
+![CLV Simulator EU Basic](https://raw.githubusercontent.com/harsha-andra/Customer-Lifetime-Value-CLV-Prediction-with-Survival-Analysis/main/Output_Results/Screenshot(124).png)
 
 ---
 
@@ -184,6 +184,7 @@ Synthetic dataset of **20,000+ customers** across 5 regions (NA, EU, APAC, LATAM
 - The CLV simulator allows sales/CS teams to estimate a prospect's value before onboarding
 
 ---
+
 
 
 
